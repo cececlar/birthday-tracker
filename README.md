@@ -29,7 +29,7 @@ Within `/server`
     - `cohort_number` (number)
     - `month` (number)
     - `date` (number). 
-- You should create a model and schema for your birthday object. 
+- You should create a model and schema for your birthday object that reflects this. 
 - You should create the necessary API routes that you will need for your app in a `birthdays.js` file within a `/routes` directory.
 
 Within `/client`
