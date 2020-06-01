@@ -1,5 +1,5 @@
 const router = require('express').Router();
-let Birthday = require('../models/birthday.model').Birthday;
+let Birthday = require('../models/birthday.model');
 
 router.route('/birthdays').get((req, res) => {
   Birthday.find()
@@ -7,7 +7,7 @@ router.route('/birthdays').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/birthdays/add').post((req, res) => {
+router.route('/birthdays/').post((req, res) => {
   const username = req.body.username;
   const cohort = req.body.cohort;
   const month = req.body.date;

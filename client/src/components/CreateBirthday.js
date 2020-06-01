@@ -11,7 +11,6 @@ const [cohort, setCohort] = useState('');
 const [month, setMonth] = useState('');
 const [date, setDate] = useState('');
 
-
 const changeUsername = e => {
     setUsername(e.target.value)
 }
@@ -36,9 +35,9 @@ const onSubmit = (e) => {
       month: month,
       date: date,
     };
-    console.log(birthday);
+
     axios
-      .post("http://localhost:5000/birthday/add", birthday)
+      .post("http://localhost:5000/birthdays", birthday)
       .then((res) => console.log(res.data));
 
       history.push('/')
@@ -77,7 +76,7 @@ const onSubmit = (e) => {
                 type="text"
                 className="form-control"
                 defaultValue={month}
-                onChange={setMonth}
+                onChange={changeMonth}
                 />
             </div>
             <div className="form-group">
@@ -86,7 +85,7 @@ const onSubmit = (e) => {
                 type="text"
                 className="form-control"
                 defaultValue={date}
-                onChange={setDate}
+                onChange={changeDate}
                 />
             </div>
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect }from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 const Birthday = (props) => (
@@ -39,10 +39,11 @@ useEffect(() => {
 
   const deleteBirthday = (id) => {
     axios
-      .delete("http://localhost:5000/birthday/" + id)
+      .delete("http://localhost:5000/birthdays/" + id)
       .then((res) => console.log(res.data));
     setBirthdays(birthdays.filter((el) => el._id !== id));
   };
+
 
   const birthdayList = () => {
     return birthdays.map((currentbirthday) => {
