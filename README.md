@@ -20,7 +20,8 @@ Update your `.env` file so that it contains your unique MongoDB Atlas URI with t
 yarn dev
 ```
 
-**Student Instructions** 
+# Student Instructions 
+
 You are creating a simple app that will help Wyncode keep track of the birthdays of its students and staff using the MERN stack.
 
 Within `/server`
