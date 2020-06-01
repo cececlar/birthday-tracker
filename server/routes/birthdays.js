@@ -10,8 +10,8 @@ router.route('/birthdays').get((req, res) => {
 router.route('/birthdays/').post((req, res) => {
   const username = req.body.username;
   const cohort = req.body.cohort;
-  const month = req.body.date;
-  const date = Number(req.body.date);
+  const month = req.body.month;
+  const date = req.body.date;
 
   const newBirthday = new Birthday({
     username,
@@ -25,14 +25,21 @@ router.route('/birthdays/').post((req, res) => {
   .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/birthdays/:id').get((req, res) => {
+    Birthday.findById(req.params.id)
+    .then(birthday => res.json(birthday))
+    .catch(err => res.status(400).json('Error: ' + err));
+  }); 
+  
+
 
 router.route('/birthdays/:id').post((req, res) => {
   Birthday.findById(req.params.id)
     .then(birthday => {
       birthday.username = req.body.username;
       birthday.cohort = req.body.cohort
-      birthday.month = req.body.description;
-      birthday.month = Number(req.body.duration);
+      birthday.month = req.body.month;
+      birthday.date = req.body.date;
 
       birthday.save()
         .then(() => res.json('Birthday updated!'))

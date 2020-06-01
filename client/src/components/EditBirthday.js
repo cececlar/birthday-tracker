@@ -22,11 +22,6 @@ useEffect(() => {
         console.log(error);
       });
 
-    axios
-      .get("http://localhost:5000/birthdays/")
-      .catch(function (error) {
-        console.log(error);
-      });
   }, []);
 
   const changeUsername = (e) => {
@@ -57,7 +52,7 @@ useEffect(() => {
     console.log(birthday);
     axios
       .post(
-        "http://localhost:5000/birthdays" + props.match.params.id,
+        "http://localhost:5000/birthdays/" + props.match.params.id,
         birthday
       )
       .then((res) => console.log(res.data))
